@@ -3,8 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import VueResource from 'vue-resource'
+import VueRouter from 'vue-router'
+import Routers from './routers'
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes: Routers,
+  //http://localhost:8080/#/ 去掉#/
+  mode:'history'
+})
 
 Vue.config.productionTip = false
 
@@ -12,5 +21,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  router: router
 })

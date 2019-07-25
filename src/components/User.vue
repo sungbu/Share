@@ -109,6 +109,13 @@ export default {
           });
       }
     }
+  },
+  created() {
+    const self = this;
+    manageCookie.getCookie("username",function (name) {
+      self.users.userName = name
+    })
+    
   }
 };
 </script>

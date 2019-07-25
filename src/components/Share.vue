@@ -6,7 +6,7 @@
         <li active>SHARE广场</li>
         <li>我的SHARE</li>
         <li>个人中心</li>
-        <li>注销</li>
+        <li @click="signOut">注销</li>
         <span></span>
       </ul>
     </div>
@@ -49,6 +49,10 @@ export default {
       },
       hideList() {
           this.listShow = false;
+      },
+      signOut() {
+          manageCookie.removeCookie("username");
+          window.location.href = "/"
       }
   }
 };

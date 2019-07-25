@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- <user /> -->
-    <share />
+    <!-- <share /> -->
+    <router-view></router-view>
   </div>
 </template>
 
