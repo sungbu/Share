@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <user/>
+    <!-- <user /> -->
+    <share />
   </div>
 </template>
 
 <script>
-import user from './components/User'
+import user from "./components/User";
+import share from "./components/Share";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    user
+    user,
+    share
   }
-}
+};
+
 </script>
 
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing:border-box;
-    }
-    html,body{
-        background-color:#3c3c3c;
-    }
-    #app{
-      width:100%;
-      height: 100%;
-      min-width: 920px;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #3c3c3c;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  min-width: 920px;
+}
 </style>
