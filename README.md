@@ -1,6 +1,6 @@
 # share
 
-> A Fashion Sharing Meeting
+> a share
 
 ## Build Setup
 

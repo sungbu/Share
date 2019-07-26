@@ -9,7 +9,6 @@
 <script>
 import user from "./components/User";
 import share from "./components/Share";
-
 export default {
   name: "App",
   components: {
@@ -17,7 +16,6 @@ export default {
     share
   }
 };
-
 </script>
 
 <style>

@@ -122,5 +122,3 @@ console.log(manageCookie);
   z-index:9999;
 }
 </style>
-
-
