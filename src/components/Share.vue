@@ -4,13 +4,23 @@
       <div class="shareImg" @click="showList"></div>
       <ul v-show="listShow">
         <li active>SHARE广场</li>
-        <li>我的SHARE</li>
+        <li><router-link class="link" to="/MyShare">我的SHARE</router-link></li>
         <li>个人中心</li>
-        <li @click="signOut">注销</li>
+        <li><router-link class="link" to="/">注销</router-link></li>
         <span></span>
       </ul>
     </div>
-    <div class="content"></div>
+    <div class="content">
+        <div class="shareCon" v-for="share in shareCon">
+            <div class="boxTitle">
+                <h1>{{share.title}}</h1>
+            </div>
+            <div class="boxContent">
+                <p>{{share.content}}</p>
+            </div>
+            <img :src="share.pictrue" alt="">
+        </div>
+    </div>
   </div>
 </template>
 
@@ -40,7 +50,8 @@ export default {
   name: "share",
   data() {
     return {
-      listShow: false
+      listShow: false,
+      shareCon: []
     };
   },
   methods: {
@@ -52,17 +63,30 @@ export default {
       },
       signOut() {
           manageCookie.removeCookie("username");
-          window.location.href = "/"
       }
+  },
+  created() {
+      var dataArr = [];
+      this.$http.get("https://share-news-8ac61.firebaseio.com/post.json")
+                .then(function (data) {
+                    return data.body
+                })
+                .then(function (data) {
+                    for(var key in data){
+                        dataArr.push(data[key]);
+                    }
+                    this.shareCon = dataArr;
+                })
   }
 };
-console.log(manageCookie);
+// console.log(manageCookie);
 </script>
 
 <style scoped>
 #share * {
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
 }
 #share .header {
   position: relative;
@@ -96,6 +120,9 @@ console.log(manageCookie);
   cursor: pointer;
   padding:10px;
 }
+#share .header ul li .link{
+    color: #000;
+}
 #share .header ul li:first-child{
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
@@ -120,5 +147,20 @@ console.log(manageCookie);
   border-style: solid;
   border-color: transparent transparent rgba(171, 169, 169, .5);
   z-index:9999;
+}
+#share .content{
+        /* display: flex; */
+        width:90%;
+        /* border:1px solid red; */
+        margin: 0 auto;
+    }
+#share .content .shareCon{
+    display: inline-block;
+    width:21%;
+    height:300px;
+    flex:1;
+    overflow: hidden;
+    padding:20px 30px;
+    vertical-align: top;
 }
 </style>

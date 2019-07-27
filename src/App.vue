@@ -3,17 +3,22 @@
     <!-- <user /> -->
     <!-- <share /> -->
     <router-view></router-view>
+    <!-- <myShare/> -->
   </div>
 </template>
 
 <script>
 import user from "./components/User";
 import share from "./components/Share";
+import myShare from "./components/MyShare";
+import addShare from "./components/AddShare";
 export default {
   name: "App",
   components: {
     user,
-    share
+    share,
+    myShare,
+    addShare
   }
 };
 </script>

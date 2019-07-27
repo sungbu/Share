@@ -93,8 +93,9 @@ export default {
                 this.showWarnning = false;
                 if (data[key].password == this.users.password) {
                   console.log("密码正确");
-                  manageCookie.setCookie("username",this.users.userName,50000);
-                  window.location.href = "/share";
+                  manageCookie.setCookie("username",this.users.userName,50000)
+                  .setCookie("id",key);
+                  window.location.href = window.location.href + "share";
                 } else {
                   console.log("密码错误");
                   this.warnning = "密码错误";

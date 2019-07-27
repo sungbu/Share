@@ -1,7 +1,7 @@
 {
   "name": "share",
   "version": "1.0.0",
-  "description": "a share",
+  "description": "A Fashion Sharing Meeting",
   "author": "Prince",
   "private": true,
   "scripts": {

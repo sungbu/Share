@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes: Routers,
   //http://localhost:8080/#/ 去掉#/
-  mode:'history'
+  // mode:'history'
 })
 
 Vue.config.productionTip = false
