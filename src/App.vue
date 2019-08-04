@@ -36,6 +36,6 @@ body {
 #app {
   width: 100%;
   height: 100%;
-  min-width: 920px;
+  min-width: 1024px;
 }
 </style>

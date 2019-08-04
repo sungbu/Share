@@ -51,7 +51,7 @@ export default {
     return {
       ifLogon: false,
       maxBtn: "SIGN IN",
-      minBtn: "LOGON",
+      minBtn: "SIGN OUT",
       btnName: "",
       users: {
         userName: "",

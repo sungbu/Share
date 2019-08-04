@@ -77,6 +77,10 @@ export default {
     #myShare *{
         box-sizing: border-box;
     }
+    #myShare{
+        min-width: 1024px;
+        width:100%;
+    }
     #myShare .contentBox{
         /* display: flex; */
         width:90%;
