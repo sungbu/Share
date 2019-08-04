@@ -11,14 +11,12 @@
 import user from "./components/User";
 import share from "./components/Share";
 import myShare from "./components/MyShare";
-import addShare from "./components/AddShare";
 export default {
   name: "App",
   components: {
     user,
     share,
-    myShare,
-    addShare
+    myShare
   }
 };
 </script>
@@ -32,6 +30,9 @@ export default {
 html,
 body {
   background-color: #3c3c3c;
+}
+body::-webkit-scrollbar {
+  width: 0;
 }
 #app {
   width: 100%;

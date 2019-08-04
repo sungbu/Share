@@ -1,12 +1,12 @@
 <template>
   <div id="share">
-    <div class="header" @mouseleave="hideList" :id="headerBar">
+    <div class="header" @mouseleave="hideList">
       <p>S<span>HA</span>RE</p>
       <div class="imgBox" @click="showList">
         <span></span>
         <img src="http://pic.yupoo.com/prince450/4d3de057/2a6eff5c.png">
       </div>
-      <ul v-show="listShow" @scroll="onScroll">
+      <ul v-show="listShow">
         <li active>SHARE广场</li>
         <li><router-link class="link" to="/MyShare">我的SHARE</router-link></li>
         <li>个人中心</li>
@@ -109,9 +109,7 @@ export default {
       shareCon2: [],
       shareCon3: [],
       desShow:false,
-      listShow: false,
-      headerBar: "",
-      scrollTop: document.documentElement.scrollTop
+      listShow: false
     };
   },
   methods: {
@@ -133,15 +131,10 @@ export default {
       },
       hideList() {
           this.listShow = false;
-      },
-      onScroll() {
-        console.log(this.scrollTop)
       }
   },
   created() {
-      var dataArr = [];
       var index = 0;
-      var scrollTop = document.documentElement.scrollTop;
       this.$http.get("https://share-news-8ac61.firebaseio.com/post.json")
                 .then(function (data) {
                     return data.body
@@ -174,7 +167,6 @@ export default {
   width:100%;
   min-width: 1024px;
   min-height: 100vh;
-  padding-bottom: 40vh;
   background-color:#1b1d1c;
 }
 /* #share .redBar{

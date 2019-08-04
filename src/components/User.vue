@@ -125,6 +125,8 @@ export default {
 <style scoped>
 #user * {
   box-sizing: border-box;
+}div::-webkit-scrollbar {
+  width: 0;
 }
 #user {
   position: relative;
