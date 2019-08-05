@@ -14,18 +14,23 @@
         <span></span>
       </ul>
     </div>
+    <div class="loding">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="boxContent">
       <ul>
         <li>
           <div v-for="share in shareCon0" @mouseover="shrink(true)" @mouseleave="shrink(false)">
             <div class="boxTitle">
-            <h3>{{share.title}}</h3>
+            <h3>{{share.title | snipppetHeader}}</h3>
             </div>
             <div class="boxPic">
               <img :src="share.pictrue" alt="">
             </div>
             <div class="boxDes">
-              <p>{{share.content}}</p>
+              <p>{{share.content | snipppet}}</p>
               <button>更多</button>
             </div>
           </div>
@@ -33,13 +38,13 @@
         <li>
           <div v-for="share in shareCon1" @mouseover="shrink(true)" @mouseleave="shrink(false)">
             <div class="boxTitle">
-            <h3>{{share.title}}</h3>
+            <h3>{{share.title | snipppetHeader}}</h3>
             </div>
             <div class="boxPic">
               <img :src="share.pictrue" alt="">
             </div>
             <div class="boxDes">
-              <p>{{share.content}}</p>
+              <p>{{share.content | snipppet}}</p>
               <button>更多</button>
             </div>
           </div>
@@ -47,13 +52,13 @@
         <li>
           <div v-for="share in shareCon2" @mouseover="shrink(true)" @mouseleave="shrink(false)">
             <div class="boxTitle">
-            <h3>{{share.title}}</h3>
+            <h3>{{share.title | snipppetHeader}}</h3>
           </div>
           <div class="boxPic">
             <img :src="share.pictrue" alt="">
           </div>
           <div class="boxDes">
-            <p>{{share.content}}</p>
+            <p>{{share.content | snipppet}}</p>
             <button>更多</button>
           </div>
           </div>
@@ -61,13 +66,13 @@
         <li>
           <div v-for="share in shareCon3" @mouseover="shrink(true)" @mouseleave="shrink(false)">
             <div class="boxTitle">
-            <h3>{{share.title}}</h3>
+            <h3>{{share.title | snipppetHeader}}</h3>
           </div>
           <div class="boxPic">
             <img :src="share.pictrue" alt="">
           </div>
           <div class="boxDes">
-            <p>{{share.content}}</p>
+            <p>{{share.content | snipppet}}</p>
             <button>更多</button>
           </div>
           </div>
@@ -262,6 +267,39 @@ export default {
   background:rgba(224, 224, 224, .9);
 
 } */
+#share .loding{
+    position:absolute;
+    top:80px;
+    width:100%;
+    text-align: center;
+}
+#share .loding span{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background-color:#f4f4f4;
+    border-radius: 50%;
+}
+#share .loding span:nth-child(1){
+    animation: move 1s ease infinite .1s;
+}
+#share .loding span:nth-child(2){
+    animation: move 1s ease infinite .2s;
+}
+#share .loding span:nth-child(3){
+    animation: move 1s ease infinite .3s;
+}
+@keyframes move{
+    0%{
+        transform: scale(0.5);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.5);
+    }
+}
 #share .imgBox img{
   width:50px;
 }
@@ -327,7 +365,7 @@ export default {
   padding:0 5px;
 }
 #share .boxContent ul li .boxDes p{
-  height:100px;
+  /* height:100px; */
   overflow: hidden;
 }
 #share .boxContent ul li .boxDes button{
@@ -346,6 +384,7 @@ export default {
   letter-spacing: 2px;
   transition: all .5s ease;
   cursor: pointer;
+  outline: none;
 }
 #share .boxContent ul li .boxDes button:hover{
   border:2px solid #1b1d1c;
@@ -354,7 +393,7 @@ export default {
   height:40px
 }
 #share .boxContent ul li div.active .boxDes{
-  height: 140px;
+  height:120px;
 }
 #share .boxContent ul li div.active .boxPic{
   height:200px;

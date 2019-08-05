@@ -9,6 +9,12 @@ import Routers from './routers'
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
+Vue.filter('snipppet',function (value) {
+  return value.slice(0,130) + '...'
+})
+Vue.filter('snipppetHeader',function (value) {
+  return value.slice(0,14) + '...'
+})
 const router = new VueRouter({
   routes: Routers,
   //http://localhost:8080/#/ 去掉#/
